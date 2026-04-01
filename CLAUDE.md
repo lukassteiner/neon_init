@@ -1,7 +1,7 @@
 # neon_init
 
 First thing:
-source export_pat.sh to export PAT.
+source /etc/profile.d/export-pat.sh to export PAT.
 
 You are not allowed to use github. Only Azure Devops will be used.
 
