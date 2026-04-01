@@ -10,7 +10,7 @@ REPO_DIR=$(pwd)
 # ── 1. Clone repo from Azure DevOps ──────────────────────────────────────────
 echo "Removing existing git history..."
 rm -rf "${REPO_DIR}/.git"
-rm -rf "${REPO_DIR}/*"
+rm -rf "${REPO_DIR:?}"/*
 
 echo "Cloning repo from Azure DevOps..."
 git clone "${DEVOPS_REMOTE}" .
