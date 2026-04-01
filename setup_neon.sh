@@ -10,11 +10,10 @@ REPO_DIR=$(pwd)
 # ── 1. Clone repo from Azure DevOps ──────────────────────────────────────────
 echo "Removing existing git history..."
 rm -rf "${REPO_DIR}/.git"
+rm -rf "${REPO_DIR}/*"
 
 echo "Cloning repo from Azure DevOps..."
-git clone "${DEVOPS_REMOTE}" /tmp/neon-clone
-cp -a /tmp/neon-clone/. "${REPO_DIR}/"
-rm -rf /tmp/neon-clone
+git clone "${DEVOPS_REMOTE}" .
 
 echo "Resetting working tree to match Azure DevOps..."
 git reset --hard HEAD
