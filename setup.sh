@@ -12,8 +12,7 @@ rm -rf "${REPO_DIR}/.git"
 
 echo "Cloning repo from Azure DevOps..."
 git clone "${DEVOPS_REMOTE}" /tmp/neon-clone
-cp -a /tmp/neon-clone/*.* "${REPO_DIR}/"
-cp -a /tmp/neon-clone/* "${REPO_DIR}/"
+cp -a /tmp/neon-clone/. "${REPO_DIR}/"
 rm -rf /tmp/neon-clone
 
 echo "Resetting working tree to match Azure DevOps..."
