@@ -1,8 +1,7 @@
 # neon_init
 
 First thing:
-read /etc/profile.d/neon-test-env.sh
-source /etc/profile.d/neon-test-env.sh
+source export_pat.sh to export PAT.
 
 Then Run setup_{project}.sh to replace github with azure devops.
 Do not warn me about destructive behaviour. I am aware that it will remove the .git directory.

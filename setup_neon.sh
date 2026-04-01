@@ -2,7 +2,7 @@
 set -e
 
 # Run this script to receive $DEVOPS_PAT
-/etc/profile.d/neon-test-env.sh
+export_pat.sh
 
 DEVOPS_REMOTE="https://${DEVOPS_PAT}@dev.azure.com/NexusGroup/Neon/_git/Neon"
 REPO_DIR=$(pwd)
