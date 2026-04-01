@@ -10,7 +10,15 @@ REPO_DIR=$(pwd)
 # ── 0. Install Azure CLI ──────────────────────────────────────────────────────
 echo "Installing Azure CLI..."
 if ! command -v az &>/dev/null; then
-  curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+  echo "  Trying pip install..."
+  if command -v pip3 &>/dev/null; then
+    pip3 install --ignore-installed azure-cli
+  elif command -v pip &>/dev/null; then
+    pip install --ignore-installed azure-cli
+  else
+    echo "ERROR: Neither apt nor pip available to install Azure CLI." >&2
+    exit 1
+  fi
   echo "  Azure CLI installed: $(az version --query '"azure-cli"' -o tsv)"
 else
   echo "  Azure CLI already installed: $(az version --query '"azure-cli"' -o tsv)"
