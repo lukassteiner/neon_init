@@ -20,6 +20,17 @@ echo "Resetting working tree to match Azure DevOps..."
 git reset --hard HEAD
 git clean -fd
 
+
+# ── 2. Remove any GitHub remotes ─────────────────────────────────────────────
+echo "Removing any GitHub remotes..."
+for remote in $(git remote); do
+  url=$(git remote get-url "$remote")
+  if echo "$url" | grep -q "github.com"; then
+    git remote remove "$remote"
+    echo "  Removed remote '$remote' ($url)"
+  fi
+done
+
 echo "Repo ready on branch: $(git branch --show-current)"
 
 # ── Summary ───────────────────────────────────────────────────────────────────
