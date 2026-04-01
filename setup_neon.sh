@@ -7,6 +7,15 @@ set -e
 DEVOPS_REMOTE="https://${DEVOPS_PAT}@dev.azure.com/NexusGroup/Neon/_git/Neon"
 REPO_DIR=$(pwd)
 
+# ── 0. Install Azure CLI ──────────────────────────────────────────────────────
+echo "Installing Azure CLI..."
+if ! command -v az &>/dev/null; then
+  curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+  echo "  Azure CLI installed: $(az version --query '"azure-cli"' -o tsv)"
+else
+  echo "  Azure CLI already installed: $(az version --query '"azure-cli"' -o tsv)"
+fi
+
 # ── 1. Clone repo from Azure DevOps ──────────────────────────────────────────
 echo "Removing existing git history..."
 rm -rf "${REPO_DIR}/.git"
