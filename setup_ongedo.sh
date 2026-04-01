@@ -2,7 +2,7 @@
 set -e
 
 # Run this script to receive $DEVOPS_PAT
-/etc/profile.d/export-pat.sh
+source /etc/profile.d/export-pat.sh
 
 DEVOPS_REMOTE="https://${DEVOPS_PAT}@dev.azure.com/NexusGroup/Ongedo/_git/Ongedo"
 REPO_DIR=$(pwd)
